@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tuc Shop</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+  <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    var global = global || window;
+    // var Buffer = Buffer || [];
+    var process = process || {
+      env: { DEBUG: undefined },
+      version: []
+    };
+  </script>
+  <script type="text/javascript">
+    //window.onload = maxWindow;
+    $(document).ready(function() {
+      
+      setTimeout(function(){ maxWindow(); }, 3000);
+ 
+      
+    });
+    function maxWindow() {
+         // Supports most browsers and their versions.
+         var elem = document.body;
+    var requestMethod = elem.requestFullScreen || elem.webkitRequestFullScreen || elem.mozRequestFullScreen || elem.msRequestFullScreen;
+
+          if (requestMethod) { // Native full screen.
+              requestMethod.call(elem);
+          } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+              var wscript = new ActiveXObject("WScript.Shell");
+              if (wscript !== null) {
+                  wscript.SendKeys("{F11}");
+              }
+          }
+    }
+</script> 
+
+</head>
+<body>
+  <app-root></app-root>
+</body>
+
+
+<style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background:#041d3b;
+      height: 1px!important;
+      width: 2px;
+    }
+
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0c0330; 
+    }
+    </style>
+</html>

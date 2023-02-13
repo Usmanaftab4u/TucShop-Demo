@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<div class="bg-login">
+<div class="container login-container">
+	<div class="row">
+		
+		<div  class="col-md-4 offset-md-4 login-form-2">
+			<h3>TucShop Login</h3>
+			<form #loginForm="ngForm" (ngSubmit)="loginSubmit()">
+				<div class="form-group">
+					<input type="username" required [(ngModel)]="loginModel.username" name="username" class="form-control" placeholder="Your UserName"  />
+				</div>
+				<div class="form-group">
+					<input type="password" required [(ngModel)]="loginModel.password" name="password" class="form-control" placeholder="Your Password"  />
+				</div>
+				<div class="form-group" style="text-align: right;">
+					<nz-spin *ngIf="isLogSpinning" [nzDelay]="500" nzSimple    [nzSize]="'large'"></nz-spin>
+					<button  *ngIf="!isLogSpinning"   nz-button [nzSize]="size"  nzType="primary" type="submit" name="submit" [disabled]="logValidate()" >Login</button>
+				</div>							
+			</form>
+		</div>
+	
+	</div>
+</div>
+</div>
+            

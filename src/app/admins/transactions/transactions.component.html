@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script> var global = global || window; var Buffer = Buffer || []; var process = process || { env: { DEBUG: undefined }, version: [] }; </script>
+
+<div nz-row>
+  <div nz-col nzSpan="24" nzOffset="">
+    <h1 style="display: inline;">Transactions </h1 ><span style="font-size: 29px;">({{startDate }} &nbsp; - &nbsp; {{endDate}})</span>
+  </div>
+</div>
+<div style="text-align: center;">
+  <div nz-row>
+    <div nz-col nzSpan="8" nzOffset="">
+
+  <nz-range-picker [(ngModel)]="datevariable" (ngModelChange)="onChange()" ></nz-range-picker>
+    </div>
+    <div nz-col nzSpan="3" nzOffset="">
+      <button nz-button (click)="scearchTransactions()" nzType="primary" [nzSize]="size" nzShape="round">
+        <i nz-icon nzType="search"></i>Search</button>
+    </div>
+    <div nz-col nzSpan="8" nzOffset="5">
+      <!-- <button nz-button nzType="primary"  nzShape="round" (click)="download()">
+        <i nz-icon nzType="export"></i>Export</button> -->
+        </div>
+  </div>
+</div>
+
+
+
+<nz-table #basicTable id="table1" [nzData]="Transactions">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>User</th>
+      <th>Total Amount</th>
+      <th>Created by</th>
+      <th>Updated by</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody >
+    <!-- <nz-spin *ngIf="display" style="margin-left:500px; margin-top:10px" nzSize="large" nzSimple></nz-spin> -->
+    <tr *ngFor="let data of basicTable.data">
+
+      <td *ngIf="data.date">{{ data.date }}</td>
+      <td *ngIf="data.createdBy">{{ data.createdBy | uppercase }}</td>
+      <td *ngIf="data.totalAmount">{{ data.totalAmount }}</td>
+      <td *ngIf="data.createdBy">{{ data.createdBy }}</td>
+      <td *ngIf="data.updatedBy">{{ data.updatedBy }}</td>
+      <td *ngIf="data.createdBy" >
+        <!-- <a (click)="deleteTransactions(data.id)">Delete</a>
+          <nz-divider nzType="vertical"></nz-divider> -->
+        <a (click)="detailsTransactions(data.createdBy)" >Details</a>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+
+
+
+</nz-table>
+<nz-spin *ngIf="display" style="margin-left:540px; margin-top:10px" nzSize="large" nzSimple></nz-spin>
